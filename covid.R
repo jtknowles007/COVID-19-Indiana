@@ -41,3 +41,20 @@ ggplot(covid, aes(x=date)) +
   xlab("Date") +
   ylab("Count")
 
+ggplot(covid, aes(x=date)) +
+  geom_line(aes(y=IN.Cases, color="State"), size=1, alpha=0.9, linetype=1) +
+  geom_line(aes(y=Mad.Cases, color="County"), size=1, alpha=0.9, linetype=1) +
+  scale_color_manual(name='', values=c('State' = 'blue', 'County' = 'green')) +
+  scale_x_date(date_breaks = "weeks", date_labels = "%b %d") +
+  ggtitle("State vs County Cases") +
+  xlab("Date") +
+  ylab("Count")
+
+ggplot(covid, aes(x=date)) +
+  geom_line(aes(y=IN.Deaths, color="State"), size=1, alpha=0.9, linetype=1) +
+  geom_line(aes(y=Mad.Deaths, color="County"), size=1, alpha=0.9, linetype=1) +
+  scale_color_manual(name='', values=c('State' = 'blue', 'County' = 'green')) +
+  scale_x_date(date_breaks = "weeks", date_labels = "%b %d") +
+  ggtitle("State vs County Deaths") +
+  xlab("Date") +
+  ylab("Count")
